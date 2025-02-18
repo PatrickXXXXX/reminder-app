@@ -1,0 +1,24 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.xml
+
+telegram:
+  bot:
+    token: FAKE_TELEGRAM_TOKEN
+    username: FAKE_TELEGRAM_USERNAME
+
+logging:
+  level:
+    org.springframework.boot.context.config: DEBUG
