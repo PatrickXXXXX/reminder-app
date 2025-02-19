@@ -98,6 +98,7 @@ Invoke-RestMethod `
 Пользователь будет создан или обновлён по sub из токена.
 
 1.2 Получить пользователя по ID
+
 Invoke-RestMethod `
     -Method GET `
     -Uri "http://localhost:8080/api/v1/user/1" `
@@ -107,7 +108,8 @@ Invoke-RestMethod `
     
 Вернёт данные пользователя id=1, если sub в базе совпадает с токеном.
 
-1.3 Удалить пользователя (id=1)
+1.3 Удалить пользователя
+
 Invoke-RestMethod `
     -Method DELETE `
     -Uri "http://localhost:8080/api/v1/user/1" `
@@ -120,6 +122,7 @@ Invoke-RestMethod `
 
 2. Напоминания (Reminder)
 2.1 Создать новое напоминание
+   
 Invoke-RestMethod `
     -Method POST `
     -Uri "http://localhost:8080/api/v1/reminder/create" `
@@ -137,6 +140,7 @@ Invoke-RestMethod `
 Создаётся напоминание, привязанное к sub пользователя из токена.
 
 2.2 Получить все напоминания (без пагинации)
+
 Invoke-RestMethod `
     -Method GET `
     -Uri "http://localhost:8080/api/v1/reminder/list" `
@@ -168,6 +172,7 @@ Invoke-RestMethod `
 Если напоминание с ID=10 принадлежит вам, вернёт его данные, иначе 403/404.
 
 2.5 Обновить напоминание
+
 Invoke-RestMethod `
     -Method PUT `
     -Uri "http://localhost:8080/api/v1/reminder/update" `
@@ -186,6 +191,7 @@ Invoke-RestMethod `
 Обновит поля, если sub совпадает с владельцем.
 
 2.6 Удалить напоминание
+
 Invoke-RestMethod `
     -Method DELETE `
     -Uri "http://localhost:8080/api/v1/reminder/delete/10" `
@@ -196,7 +202,9 @@ Invoke-RestMethod `
 Удалит напоминание с ID=10, если оно принадлежит текущему пользователю.
 
 Поиск, Сортировка, Фильтрация
+
 2.7 Поиск напоминаний
+
 Invoke-RestMethod `
     -Method GET `
     -Uri "http://localhost:8080/api/v1/reminder/search?name=Example&remindDate=2025-05-10" `
@@ -207,6 +215,7 @@ Invoke-RestMethod `
 Ищет напоминания по сочетанию параметров (name, description, remindDate или remindTime). Любой из параметров можно опустить.
 
 2.8 Сортировка напоминаний
+
 Invoke-RestMethod `
     -Method GET `
     -Uri "http://localhost:8080/api/v1/reminder/sort?by=name" `
@@ -217,6 +226,7 @@ Invoke-RestMethod `
 Сортирует напоминания по name, remindDate, remindTime.
 
 2.9 Фильтрация напоминаний
+
 Invoke-RestMethod `
     -Method GET `
     -Uri "http://localhost:8080/api/v1/reminder/filter?beforeDate=2025-02-12" `
