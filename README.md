@@ -94,6 +94,7 @@ Invoke-RestMethod `
         "email": " example@gmail.com @gmail.com",
         "telegramId": "123456789"
     }'
+    
 Пользователь будет создан или обновлён по sub из токена.
 
 1.2 Получить пользователя по ID
@@ -103,6 +104,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     }
+    
 Вернёт данные пользователя id=1, если sub в базе совпадает с токеном.
 
 1.3 Удалить пользователя (id=1)
@@ -113,6 +115,7 @@ Invoke-RestMethod `
         "Authorization" = "Bearer BEARER_TOKEN"
         "Content-Type"  = "application/json"
     }
+    
 Удаляет пользователя id=1, если его sub совпадает с токеном.
 
 2. Напоминания (Reminder)
@@ -130,6 +133,7 @@ Invoke-RestMethod `
         "remindDate": "2025-02-10",
         "remindTime": "09:45"
     }'
+   
 Создаётся напоминание, привязанное к sub пользователя из токена.
 
 2.2 Получить все напоминания (без пагинации)
@@ -139,6 +143,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     } 
+    
 Вернёт все напоминания текущего пользователя.
 
 2.3 Получить список напоминаний с пагинацией
@@ -149,6 +154,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     }
+    
 Возвращает объект Page с content[], totalElements, size, и т.д.
 
 2.4 Получить напоминание по ID
@@ -158,6 +164,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     } 
+    
 Если напоминание с ID=10 принадлежит вам, вернёт его данные, иначе 403/404.
 
 2.5 Обновить напоминание
@@ -175,6 +182,7 @@ Invoke-RestMethod `
         "remindDate": "2026-01-11",
         "remindTime": "10:00"
     }' 
+    
 Обновит поля, если sub совпадает с владельцем.
 
 2.6 Удалить напоминание
@@ -184,6 +192,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     } 
+    
 Удалит напоминание с ID=10, если оно принадлежит текущему пользователю.
 
 Поиск, Сортировка, Фильтрация
@@ -194,6 +203,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     } 
+    
 Ищет напоминания по сочетанию параметров (name, description, remindDate или remindTime). Любой из параметров можно опустить.
 
 2.8 Сортировка напоминаний
@@ -203,6 +213,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     }
+    
 Сортирует напоминания по name, remindDate, remindTime.
 
 2.9 Фильтрация напоминаний
@@ -212,6 +223,7 @@ Invoke-RestMethod `
     -Headers @{
         "Authorization" = "Bearer BEARER_TOKEN"
     }
+    
 beforeDate — фильтрует напоминания, которые должны быть до указанной даты.
 afterDate — фильтрует напоминания, которые должны быть после указанной даты.
 beforeTime — фильтрует напоминания, которые должны быть до указанного времени.
